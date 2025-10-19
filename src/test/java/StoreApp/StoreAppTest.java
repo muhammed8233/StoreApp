@@ -2,8 +2,6 @@ package StoreApp;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class StoreAppTest {
     StoreApp storeApp = new StoreApp();
 
