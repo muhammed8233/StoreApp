@@ -4,6 +4,9 @@ public class Item {
     private String name;
     private int quantity;
     private double price;
+    private double totalPrice;
+
+
 
     @Override
     public String toString() {
@@ -29,12 +32,22 @@ public class Item {
         return quantity;
     }
 
-    public void setPrice (double price){
-        if (price > 0.0){
+    public void setPrice (double price) {
+        if (price > 0.0) {
             this.price = price;
         }
     }
-    public double getPrice (){
+    public double getPrice(){
         return price;
     }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void calculateTotalPrice(double totalPrice) {
+        totalPrice = quantity * price;
+        this.totalPrice = totalPrice;
+    }
+
 }
