@@ -3,8 +3,6 @@ package School;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StudentTest {
@@ -28,11 +26,55 @@ class StudentTest {
         assertEquals("09043225543", student.getPhoneNumber());
     }
 
+
     @Test
     void verifyingRegisterStudent() {
-        student.registerStudent("bolaji", 23, "456774876487");
-        assertEquals("bolaji", student.getName());
-        assertEquals(23, student.getAge());
-        assertEquals("456774876487", student.getPhoneNumber());
+        for (Student record: student.records) {
+             student.registerStudent("bolaji", 23, "456774876487");
+            assertEquals("bolaji", record.getName());
+            assertEquals(23, record.getAge());
+            assertEquals("456774876487", record.getPhoneNumber());
+        }
     }
+
+    @Test
+    void testTOViewRecord(){
+        Student student = new Student();
+        student.registerStudent("bolaji", 23, "456774876487");
+        student.viewRegisteredStudent();
+
+    }
+
+    @Test
+    void verifyingUpdatingOfStudentRecord(){
+        Student student1 = new Student();
+            student1.registerStudent("bolaji", 23, "456774876487");
+        student1.viewRegisteredStudent();
+
+            Student record = student1.updateStudentRecord("psc/2025/01", "salihi",
+                    17, "09043225543");
+
+            assertEquals("salihi", record.getName());
+            assertEquals(17, record.getAge());
+            assertEquals("09043225543", record.getPhoneNumber());
+        student1.viewRegisteredStudent();
+    }
+
+    @Test
+    void verifyToCheckDeleteOfStudentRecord(){
+        Student student = new Student();
+        student.registerStudent("bolaji", 23, "456774876487");
+        student.registerStudent("bala", 34, "5467899876");
+
+        Student result = student.deleteStudentRecord("psc/2025/01");
+        assertEquals("bolaji", result.getName());
+       assertEquals(23, result.getAge());
+        assertEquals("456774876487", result.getPhoneNumber());
+
+        student.viewRegisteredStudent();
+
+    }
+
+
+
 }

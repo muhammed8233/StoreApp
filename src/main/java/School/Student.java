@@ -1,6 +1,7 @@
 package School;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public  class Student {
@@ -47,7 +48,7 @@ public  class Student {
 
     public Student registerStudent(String name, int age, String phoneNumber) {
         Student student = new Student();
-        student.setUserid("psc/2025/" + records.size()+1);
+        student.setUserid("psc/2025/" + records.size()+ 1);
         student.setName(name);
         student.setAge(age);
         student.setPhoneNumber(phoneNumber);
@@ -65,10 +66,12 @@ public  class Student {
             System.out.printf("%20s%20d%20s%20s%n", records.get(i).getName(), records.get(i).getAge()
                      , records.get(i).getUserid(), records.get(i).getPhoneNumber());
         }
+        System.out.println("Total record: " + records.size());
         return student;
     }
 
     public Student updateStudentRecord(String id, String newName, int newAge,  String newPhoneNumber ){
+        Student student = new Student();
         for (Student record : records) {
             if (record.getUserid().equalsIgnoreCase(id)) {
                 record.setName(newName);
@@ -83,8 +86,12 @@ public  class Student {
 
     public Student deleteStudentRecord(String id){
         Student student = new Student();
-        records.removeIf(Student -> Student.getUserid().equalsIgnoreCase(id));
-
-        return student;
+        for (Student record: records){
+            if (record.getUserid().equalsIgnoreCase(id)){
+                records.remove(record);
+            }
+            return record;
+        }
+        throw new IllegalArgumentException("userid does not exist");
     }
 }
