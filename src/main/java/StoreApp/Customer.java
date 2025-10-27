@@ -89,7 +89,4 @@ Item item = new Item();
     public double getBillTotal() {
         return billTotal;
     }
-
-
-
 }

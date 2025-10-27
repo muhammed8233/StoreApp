@@ -26,7 +26,9 @@ public class Main {
                 System.out.println("Enter phone number");
                 String phoneNumber = input.next();
 
-                student.registerStudent(name, age, phoneNumber);
+                Student createdRecord =  student.registerStudent(name, age, phoneNumber);
+                System.out.println("Record for " + createdRecord.getName() + " has been created successfully.");
+
 
             }
             if (userInput == 2) {
@@ -42,13 +44,17 @@ public class Main {
                 int age = input.nextInt();
                 System.out.println("Enter phone number");
                 String phoneNumber = input.next();
-                student.updateStudentRecord(studentId, name, age, phoneNumber);
+               Student updatedRecord = student.updateStudentRecord(studentId, name, age, phoneNumber);
+
+                System.out.println("Record for " + updatedRecord.getName() + " has been updated successfully.");
 
             }
             if (userInput == 4) {
                 System.out.println("Enter student id you want to delete");
                 String studentId = input.next();
-                student.deleteStudentRecord(studentId);
+               Student deletedRecord = student.deleteStudentRecord(studentId);
+                System.out.println("Record for " + deletedRecord.getName() + " has been  deleted successfully.");
+
             }
             if (userInput == 5) {
                 System.exit(700);

@@ -74,7 +74,4 @@ class StudentTest {
         student.viewRegisteredStudent();
 
     }
-
-
-
 }

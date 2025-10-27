@@ -62,9 +62,9 @@ public  class Student {
     public Student viewRegisteredStudent() {
         Student student = new Student();
         System.out.printf("%20s%20s%20s%20s%n","NAME", "AGE", "USER ID", "TEL");
-        for (int i = 0; i < records.size(); i++) {
-            System.out.printf("%20s%20d%20s%20s%n", records.get(i).getName(), records.get(i).getAge()
-                     , records.get(i).getUserid(), records.get(i).getPhoneNumber());
+        for (Student record: records) {
+            System.out.printf("%20s%20d%20s%20s%n", record.getName(), record.getAge()
+                     , record.getUserid(), record.getPhoneNumber());
         }
         System.out.println("Total record: " + records.size());
         return student;
@@ -72,26 +72,27 @@ public  class Student {
 
     public Student updateStudentRecord(String id, String newName, int newAge,  String newPhoneNumber ){
         Student student = new Student();
-        for (Student record : records) {
+        for (Student record: records) {
             if (record.getUserid().equalsIgnoreCase(id)) {
                 record.setName(newName);
                 record.setAge(newAge);
                 record.setPhoneNumber(newPhoneNumber);
-
                 return record;
+
             }
         }
-        throw new IllegalArgumentException("userid does not exist");
+        return student;
     }
 
     public Student deleteStudentRecord(String id){
         Student student = new Student();
         for (Student record: records){
-            if (record.getUserid().equalsIgnoreCase(id)){
+            if(record.getUserid().equalsIgnoreCase(id)){
                 records.remove(record);
+                return record;
             }
-            return record;
         }
-        throw new IllegalArgumentException("userid does not exist");
+
+        return student;
     }
 }
