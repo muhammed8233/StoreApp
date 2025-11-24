@@ -1,7 +1,6 @@
 package School;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 
 public  class Student {
@@ -78,7 +77,8 @@ public  class Student {
                 record.setAge(newAge);
                 record.setPhoneNumber(newPhoneNumber);
                 return record;
-
+            }else{
+                System.out.println("Student record not found");
             }
         }
         return student;

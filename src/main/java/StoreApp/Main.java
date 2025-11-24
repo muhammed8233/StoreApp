@@ -2,7 +2,6 @@ package StoreApp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +10,7 @@ public class Main {
         double totalPrice = 0.0;
         double billTotal;
         double subTotal = 0.0;
-        double vat = 7.50;
+        double vat = 7.5;
         double amount;
         double balance;
         double discount = 5.0;

@@ -3,7 +3,7 @@ package StoreApp;
 import java.time.LocalDateTime;
 
 public class StoreApp {
-    public Item buyItem(String name, int quantity, double price,
+    public Item  buyItem(String name, int quantity, double price,
                         double totalPrice) {
 
         if (quantity > 0) {
